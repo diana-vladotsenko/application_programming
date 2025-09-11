@@ -5,3 +5,5 @@ Requirements:
  * formatter: code formatter (prettier),
  * auth: JWT
  * UI: React MUI, Mantine shadcn/ui
+
+To find *classworks* and *homeworks*, go to -> Homeworks / Classworks named branch 
