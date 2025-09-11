@@ -14,7 +14,8 @@ export default function Counter() {
   return (
     <>
       <h1>My App</h1>
-      <div>Number is: 
+      <div>
+        Number is:
         <h2>{count}</h2>
       </div>
 
@@ -30,7 +31,7 @@ export default function Counter() {
 
       <div>
         <div className="card">
-          Descrease By (-):
+          Decrease By (-):
           <button onClick={() => decreaseCounter(1)}>1</button>
           <button onClick={() => decreaseCounter(25)}>25</button>
           <button onClick={() => decreaseCounter(50)}>50</button>
