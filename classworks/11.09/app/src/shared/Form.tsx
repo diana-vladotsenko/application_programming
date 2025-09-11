@@ -1,5 +1,3 @@
-import "../style/AboutMe.css";
-
 export default function AboutMe() {
   return (
     <>

@@ -1,4 +1,4 @@
-import "../style/AboutMe.css"
+import "../styles/AboutMe.css"
 import Form from "../shared/Form.tsx"
 
 export default function AboutMe(){
