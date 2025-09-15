@@ -7,7 +7,7 @@ export default function App() {
     <>
       <Counter />
       <AboutMe />
-      <Dice/>
+      <Dice />
     </>
   );
 }
