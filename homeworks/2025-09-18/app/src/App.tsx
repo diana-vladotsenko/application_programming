@@ -7,6 +7,7 @@ import AboutMe from "./components/AboutMe";
 import LocalStorage from "./components/LocalStorage";
 
 function App() {
+
   return (
     <>
       <AppBar position="fixed" sx={{ bgcolor: "pink" }}>
