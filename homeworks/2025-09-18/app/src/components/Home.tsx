@@ -5,7 +5,14 @@ export default function Home() {
     <>
       <Box>
         <Typography variant="h4">Home</Typography>
-        <Button variant="outlined">button</Button>
+        <Box sx={{ margin: "20px" }}>
+          <Button color="primary" variant="contained" size="large">
+            Primary Button
+          </Button>
+          <Button color="secondary" variant="outlined" size="large">
+            Secondary Button
+          </Button>
+        </Box>
       </Box>
     </>
   );
