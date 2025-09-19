@@ -5,4 +5,3 @@ Requirements:
  * formatter: code formatter (prettier),
  * auth: JWT
  * UI: React MUI, Mantine shadcn/ui
- * 
