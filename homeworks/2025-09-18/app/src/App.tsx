@@ -4,6 +4,7 @@ import { Link, Outlet, Route, Routes } from "react-router";
 import Home from "./components/Home";
 import Something from "./components/Something";
 import Card from "./components/Card";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
               <Button>
                 <Link to="/card">Card</Link>
               </Button>
+              <Button>
+                <Link to="/aboutme">About Me</Link>
+              </Button>
             </Box>
           </Toolbar>
         </Container>
@@ -34,6 +38,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/something" element={<Something />} />
         <Route path="/card" element={<Card />} />
+        <Route path="/aboutme" element={<AboutMe />} />
       </Routes>
     </>
   );
