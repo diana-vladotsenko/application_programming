@@ -2,9 +2,9 @@ import { AppBar, Box, Button, Container, Toolbar } from "@mui/material";
 import "./App.css";
 import { Link, Outlet, Route, Routes } from "react-router";
 import Home from "./components/Home";
-import Something from "./components/Something";
 import Card from "./components/Card";
 import AboutMe from "./components/AboutMe";
+import LocalStorage from "./components/LocalStorage";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
                 <Link to="/">Home</Link>
               </Button>
               <Button>
-                <Link to="/something">Something</Link>
+                <Link to="/localstorage">Local Storage</Link>
               </Button>
               <Button>
                 <Link to="/card">Card</Link>
@@ -36,7 +36,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/something" element={<Something />} />
+        <Route path="/localstorage" element={<LocalStorage />} />
         <Route path="/card" element={<Card />} />
         <Route path="/aboutme" element={<AboutMe />} />
       </Routes>
