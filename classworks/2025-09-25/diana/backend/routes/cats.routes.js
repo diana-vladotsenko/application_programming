@@ -19,6 +19,7 @@ router.put("/:id",
     ],
     catsController.update
 );
-router.delete("/", catsController.delete);
+router.delete("/:id", [param("id").isString().withMessage("id is required")], catsController.delete
+);
 
 module.exports = router;

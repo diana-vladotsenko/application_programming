@@ -36,16 +36,23 @@ exports.update = (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
     const cat = cats.find((c) => c.id === id);
-    if (!cat) return res.status(404).json({ error: "Cat does not exist with this ID" });
+    if (!cat) return res.status(404).json({ error: "ERROR_CAT_DOES_NOT_EXIST_WITH_THIS_ID" });
 
     if (typeof name === "string") {
         cat.name = name;
     }
-    cat.updatedAt = Date.now();
     return res.json(cat);
 };
 
 exports.delete = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400);
 
+    const { id } = req.params;
+    const cat = cats.find((c) => c.id === id);
+    if (!cat) return res.status(404).json({ error: "ERROR_CAT_DOES_NOT_EXIST_WITH_THIS_ID" });
+
+    cat.deleted = true;
+    return res.status(204).send();
 };
 
