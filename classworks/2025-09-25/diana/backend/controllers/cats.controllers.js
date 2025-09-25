@@ -1,3 +1,5 @@
+const { validationResult } = require("express-validator");
+
 const cats = [
     {
         id: "7d613b93-fa3e-4ef3-a9d2-e09e5ca6e4e6",
@@ -27,7 +29,23 @@ exports.read = (req, res) => {
     res.send(cats);
 };
 
-exports.update = (req, res) => { };
+exports.update = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400);
 
-exports.delete = (req, res) => { };
+    const { id } = req.params;
+    const { name } = req.body;
+    const cat = cats.find((c) => c.id === id);
+    if (!cat) return res.status(404).json({ error: "Cat does not exist with this ID" });
+
+    if (typeof name === "string") {
+        cat.name = name;
+    }
+    cat.updatedAt = Date.now();
+    return res.json(cat);
+};
+
+exports.delete = (req, res) => {
+
+};
 
