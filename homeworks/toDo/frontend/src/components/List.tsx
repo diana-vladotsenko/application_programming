@@ -1,7 +1,8 @@
-import { Typography, Stack, Box, Button, ListItem } from "@mui/material";
+import { Typography, Stack, Box, ListItem } from "@mui/material";
 import { useEffect, useState } from "react";
 import SubmitTask from "./SubmitTask";
 import UpdateTask from "./UpdateTask";
+import DeleteTask from "./DeleteTask";
 
 type Task = {
   id: string;
@@ -33,9 +34,7 @@ function List() {
         {tasks.map((t) => (
           <ListItem key={t.id}>
             {t.content}
-            <Button variant="outlined" sx={{ whiteSpace: "nowrap" }}>
-              Remove
-            </Button>
+            <DeleteTask id={t.id} fetchTasks={fetchTasks} />
           </ListItem>
         ))}
       </Box>

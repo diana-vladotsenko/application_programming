@@ -49,4 +49,11 @@ exports.update = (req, res) => {
     return res.json(task);
 };
 
-exports.delete = (req, res) => { };
+exports.delete = (req, res) => {
+    const id = Number(req.params.id);
+    const idx = tasks.findIndex(t => Number(t.id) === id);
+    if (idx === -1) return res.status(404).json({ message: "ERROR_TASK_NOT_FOUND" });
+
+    tasks[idx].deleted = true;
+    res.status(204).send();
+};

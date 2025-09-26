@@ -17,6 +17,7 @@ router.put("/:id",
         body("content").optional().isString().isLength({ min: 1, max: 200 }),
     ],
     tasksController.update
-); router.delete("/:id", tasksController.delete);
+); 
+router.delete("/:id", tasksController.delete);
 
 module.exports = router;
