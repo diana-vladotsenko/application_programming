@@ -44,3 +44,5 @@ exports.delete = (req, res) => {
     tasks[idx].deleted = true;
     res.status(204).send();
 };
+
+exports.tasks = tasks;

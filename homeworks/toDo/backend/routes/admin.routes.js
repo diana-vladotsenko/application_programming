@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const { body, param } = require("express-validator");
+const { body } = require("express-validator");
 const adminController = require("../controllers/admin.controller.js");
 const {
     adminRouteMiddleware,
@@ -9,9 +9,14 @@ const {
 
 router.use(adminRouteMiddleware);
 
-router.get("/admin", adminGetRouteMiddleware, adminController.read);
-router.post("/admin", adminController.create);
-router.put("/admin", adminController.update);
-router.delete("/admin", adminController.delete);
+router.get("/", adminGetRouteMiddleware, adminController.read);
+router.post("/", adminController.create);
+router.put(
+    "/",
+    [body("id").notEmpty().withMessage("ERROR_ID_REQUIRED").isInt().withMessage("ERROR_ID_MUST_BE_INT")],
+    adminController.update
+);
+router.delete("/", adminController.delete);
+
 
 module.exports = router;
