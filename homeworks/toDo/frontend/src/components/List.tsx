@@ -1,6 +1,7 @@
 import { Typography, Stack, Box, Button, ListItem } from "@mui/material";
 import { useEffect, useState } from "react";
 import SubmitTask from "./SubmitTask";
+import UpdateTask from "./UpdateTask";
 
 type Task = {
   id: string;
@@ -59,8 +60,17 @@ function List() {
         >
           <Typography variant="h5">The list of tasks</Typography>
           <Typography variant="body2">tasks count: {tasks.length}</Typography>
-          <SubmitTask fetchTasks={fetchTasks} />
-          <TaskList tasks={tasks} />
+          <Box>
+            <Typography variant="h6">Add new task</Typography>
+            <SubmitTask fetchTasks={fetchTasks} />
+          </Box>
+          <Box>
+            <Typography variant="h6">Update the task</Typography>
+            <UpdateTask fetchTasks={fetchTasks} />
+          </Box>
+          <Box>
+            <TaskList tasks={tasks} />
+          </Box>
           <Stack direction="row" spacing={1} alignItems={"center"}>
             <Typography variant="body2">{}</Typography>
           </Stack>

@@ -34,6 +34,19 @@ exports.create = (req, res) => {
     return res.status(201).json(newTask);
 };
 
-exports.update = (req, res) => { };
+exports.update = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400);
+
+    const id = Number(req.params.id);
+    const { content } = req.body;
+    const task = tasks.find((t) => t.id === id);
+    if (!task) return res.status(404).json({ error: "ERROR_TASK_DOES_NOT_EXIST_WITH_THIS_ID" });
+
+    if (typeof content === "string") {
+        task.content = content;
+    }
+    return res.json(task);
+};
 
 exports.delete = (req, res) => { };
