@@ -1,18 +1,5 @@
 const { validationResult } = require("express-validator");
-const tasks = [
-    {
-        id: 1,
-        content: "Clean the house",
-        deleted: false,
-    },
-    {
-        id: 2,
-        content: "Go grocery shop",
-        deleted: false,
-    },
-];
-
-
+const { tasks } = require("../data/tasks.store");
 
 exports.read = (req, res) => {
     res.send(tasks);
