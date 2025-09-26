@@ -1,5 +1,6 @@
 import { Typography, Stack, Box, Button, ListItem } from "@mui/material";
 import { useEffect, useState } from "react";
+import SubmitTask from "./SubmitTask";
 
 type Task = {
   id: string;
@@ -58,6 +59,7 @@ function List() {
         >
           <Typography variant="h5">The list of tasks</Typography>
           <Typography variant="body2">tasks count: {tasks.length}</Typography>
+          <SubmitTask fetchTasks={fetchTasks} />
           <TaskList tasks={tasks} />
           <Stack direction="row" spacing={1} alignItems={"center"}>
             <Typography variant="body2">{}</Typography>
