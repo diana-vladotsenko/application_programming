@@ -1,6 +1,7 @@
-import { Box, Button, Alert, Stack, TextField, Snackbar } from "@mui/material";
+import { Box, Button, Stack, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { useSnackbar } from "./useSnackbar"; // adjust path
+import { GeneralSnackbar } from "./GeneralSnackbar";
+import { useSnackbar } from "../hooks/useSnackbar";
 
 type SubmitTasksProps = {
   fetchTasks: () => void;
@@ -54,16 +55,12 @@ const SubmitTask = ({ fetchTasks }: SubmitTasksProps) => {
         </Stack>
       </form>
 
-      <Snackbar
+      <GeneralSnackbar
         open={open}
-        autoHideDuration={4000}
+        message={message}
+        severity={severity}
         onClose={handleClose}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <Alert severity={severity} onClose={handleClose} sx={{ width: "100%" }}>
-          {message}
-        </Alert>
-      </Snackbar>
+      />
     </Box>
   );
 };
